@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TruKKer Lite</title>
+        <meta name="description" content="">
+
+        <link rel="shortcut icon" href="img/fevicon.png" type="image/x-icon">
+        <link rel="icon" href="img/fevicon.png" type="image/x-icon">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/trukker.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <link rel="stylesheet" type="text/css" href="dashboard/assets/css/custom.css">
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-76727087-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq)
+                    return;
+                n = f.fbq = function () {
+                    n.callMethod ?
+                            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq)
+                    f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window,
+                    document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '1567574583553485');
+            fbq('track', "PageView");</script>
+        <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1567574583553485&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+<body  data-spy="scroll" data-target="#menu">
+    <div class="modal fade" tabindex="-1" role="dialog" id="team-popup">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="img/teampop.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="otpmodal_forgot" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+
+                    <h4 class="modal-title" id="myModalLabel">OTP</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" autocomplete="off" id="otp_checking_for_pwd" name="otp_checking_for_pwd">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control input-lg" placeholder="Enter OTP" id="otp_text_forgot" required="" onkeyup="this.value = this.value.replace(/[^\d]/, '')" onkeypress="this.value = this.value.replace(/[^\d]/, '')" >
+                                <span class="mandatory">*</span>
+                            </div>
+
+
+                        </div>
+                        <br>   
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="button" id="btn_otp_resend" name="btn_otp_resend" class="btn btn-warning" onclick="resend_OTP();">Resend OTP</button>
+                            <button type="submit" id="btn_otp_forgot" name="btn_otp_forgot" class="btn btn-primary">Submit</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgot_mobile_no" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+
+                    <h4 class="modal-title" id="myModalLabel">Verify Mobile Number</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" autocomplete="off" id="verify_mobile_forgot" name="verify_mobile_forgot">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control input-lg" placeholder="Enter Mobile No" name="verify_mobile_no" id="verify_mobile_no" required=""  >
+                                <span class="mandatory">*</span>
+                            </div>
+
+
+                        </div>
+                        <br>   
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="submit" id="btn_mobile_verify" name="btn_mobile_verify" class="btn btn-primary">Verify Mobile Number</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgot_pwd" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+
+                    <h4 class="modal-title" id="myModalLabel">Forgot Password</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" autocomplete="off" id="forgot_pwd_form" name="forgot_pwd_form">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control input-lg" placeholder="New Password" name="new_pwd_forgot" id="new_pwd_forgot" required=""  >
+                                <span class="mandatory">*</span>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control input-lg" placeholder="Confirm Password" name="confirm_pwd_forgot" id="confirm_pwd_forgot" required=""  >
+                                <span class="mandatory">*</span>
+                            </div>
+
+
+                        </div>
+                        <br>   
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="submit" id="btn_forgot_pwd" name="btn_forgot_pwd" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="otpmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-primary">
+
+                    <h4 class="modal-title" id="myModalLabel">OTP</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" autocomplete="off" id="otp_checking" name="otp_checking">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control input-lg" placeholder="Enter OTP" id="otp_text" name="otp_text" required="" onkeyup="this.value = this.value.replace(/[^\d]/, '')" onkeypress="this.value = this.value.replace(/[^\d]/, '')" >
+                                <span class="mandatory">*</span>
+                            </div>
+
+
+                        </div>
+                        <br>   
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="button" id="btn_otp_resend_login" name="btn_otp_resend_login" class="btn btn-warning" onclick="resend_OTP();">Resend OTP</button>
+                            <button type="submit" id="btn_otp" name="btn_otp" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" data-spy="affix" data-offset-top="61">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="img/logo-500.png" alt="" class="img-responsive"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li class="text-uppercase"><a href="#about">About us</a></li>
+                    <li><a href="#why-trukker">WHY TruKKer Lite</a></li>
+                    <li class="text-uppercase"><a href="#sign-up">sign up</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="" style="margin-right:10px;" ><span class="dropdown-toggle btn btn-primary navbar-btn text-uppercase" href="#" ><a href="TrukkerLiteApk.html" target="_blank" class="opa">Download TrukkerLite App</a></span></li>
+                   
+                    <li class="dropdown">
+                        <span class="dropdown-toggle btn btn-primary navbar-btn text-uppercase" href="#" data-toggle="dropdown">Log in</span>
+                        <div class="dropdown-menu">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="control-group alert-message" id="error_login"></div>
+                                    <form action="" method="post">
+                                        <div class="form-group">
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                <input type="text" class="form-control" name="uname" placeholder="Mobile Number" id="user_id">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span>
+                                                <input type="password" class="form-control" name="psd" placeholder="Password" id="password">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="checkbox">
+                                                    <input id="remember" class="styled" type="checkbox" checked="">
+                                                    <label for="remember">
+                                                        Remember Me
+                                                    </label>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="col-sm-6 text-right">
+                                                <a href="#" onclick="$('#forgot_mobile_no').modal('show');">Forgot Password?</a>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <input type="submit" id="login_btn" class="btn btn-block btn-primary btn-lg" value="Login">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <section class="banner">
+
+        <div class="backbanner">
+            <div class="overlay"></div>
+        </div>
+        <div class="b-text">
+            <div class="container">
+                <div class="row b-btn">
+                    <div class="col-sm-6 text-center"><a href="#i-m-transporter">I AM A Transporter</a></div>
+                    <div class="col-sm-6 text-center"><a href="#i-m-driver">I AM A Driver</a></div>
+                </div>
+                <h3 class="text-center  wow bounceIn">Transporter's Best Friend</h3>
+                <br><br>
+                <p class="text-center">The Next Step For Innovation In Transportation</p>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <div class="section-head text-left">
+                <h2 class="wow fadeInRight" style="text-align:left" data-wow-delay="0s">ABOUT TruKKer LITE
+
+                </h2>
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <p class="text-left wow fadeInRight" data-wow-delay=".2s">TruKKer Lite is a revolutionary product that provides transporters with the ability to bring in the touch of technology into their business and make data-driven business decisions for FREE. It will enable the registered transporter to manage their trucks and drivers while having the ability to track them without fitting GPS devices on trucks, ensuring FREE GPS TRACKING WITHOUT ANY INVESTMENT. </p>
+                        <p class="text-left wow fadeInRight" data-wow-delay=".4s">Moreover, it enables them to manage operations such as allocating a truck & driver, adding a truck and its driver from anywhere through our application. Thus, it provides a FLEET MANAGEMENT SOLUTION FOR FREE</p>
+                        <p class="text-left wow fadeInRight" data-wow-delay=".6s">Also, Lite strives to help the truck drivers deal with routine issues such as the inability to determine an address when in city limits, continuous follow-ups; mix-ups in deliveries etc. Drivers will also earn TruKKer loyalty points for using the App.</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="misc">
+            <img src="img/4.png" height="70" alt="" class="truck">
+            <img src="img/2.png" height="70" alt="" class="truck2">
+            <img src="img/3.png" height="70"  alt="" class="truck3">
+
+        </div>
+    </section>
+    <section id="why-trukker">
+        <div class="container-fluid">
+            <div class="section-head">
+                <h2 class="wow fadeInRight" data-wow-delay="0s">WHY TruKKer LITE
+
+                </h2>
+            </div>
+            <div class="section-body">
+                <div class="row text-center">
+                    <div class="col-sm-4 wow zoomIn" data-wow-delay=".2s">
+                        <img src="img/icon1.png" height="100" width="100" alt="" class="center-block img-responsive">
+                        <h4>Stress Free</h4>
+                        <p>Manage trucks, driver and operations while reducing unwanted paperwork and chaos that is usually part of the transportation industry. Moreover real time tracking reduces status inquiries from receivers and shippers. </p>
+                    </div>
+
+                    <div class="col-sm-4 wow zoomIn" data-wow-delay=".6s">
+                        <img src="img/icon2.png" height="100" width="100" alt="" class="center-block img-responsive">
+                        <h4>Simple</h4>
+                        <p>Have all operations in one place for transporter and driver through a user friendly interface that allows swift allocation of trucks and drivers for a load request, while reflecting the same information to the driver in real time. </p>
+                    </div>
+                    <div class="col-sm-4 wow zoomIn" data-wow-delay="1s">
+                        <img src="img/icon3.png" height="100" width="100" alt="" class="center-block img-responsive">
+                        <h4>Trustworthy</h4>
+                        <p>Real time tracking and the ability to share the tracking link not only strengthens the trust of the shipper and receiver, but also assures the transporter of the current status of a load request. Moreover, the OTP option ensures quick Point of Delivery confirmation that the consignment is received by the intended authorized party.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax" id="i-m-transporter">
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-5 col-md-7 col-sm-8 transbox">
+                    <h2>I AM A Transporter</h2>
+                    <p class="main-p">I would want a greater degree of control over logistic operations and fleet management related to trucks and truck drivers from anywhere, at any time without constant phone calls.
+                    </p>
+                    <div class="text-left tab-nav"><a href="#sign-up" data-target="#transporter" class="btn btn-lg btn-primary">Dispatch with Lite</a></div>
+                </div>
+                <div class="col-lg-7 col-md-5 col-sm-4"></div>
+            </div>
+        </div>
+    </section>
+    <section class="white">
+        <div class="container-fluid">
+
+            <ul class="list-inline features"><li><div class="f-cont">
+                        <h4><i class="fa fa-truck"></i>Track your trucks</h4>
+                        <p>Monitor your trucks during transit and obtain their real time status. </p></div>
+                </li><li><div class="f-cont">  
+                        <h4><i class="fa fa-line-chart"></i>Offer tracking to Clients</h4>
+                        <p>Share tracking link with the shipper and receiver for monitoring transaction and reduce transactional enquiries. 
+                        </p></div>
+                </li><li>  <div class="f-cont">
+                        <h4><i class="fa fa-tasks"></i>Manage your fleet </h4>
+                        <p>Allocate a driver and truck for serving a load request from anywhere without relying on excessive paperwork. Know the trucks that are in shipment, those that have a task allocated and those that are currently idle at JUST ONE GLANCE on your phone.
+                        </p></div>
+                </li><li>  <div class="f-cont">
+                        <h4><i class="fa fa-lock"></i>Secure Point of Delivery confirmation with OTP</h4>
+                        <p>Transporter now gets an option to provide immediate point of delivery confirmation to his shippers by generating an OTP and thus safeguard drivers from issues arising due to the same. </p></div>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+    <section class="parallax" id="i-m-driver">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-7 col-md-5 col-sm-4"></div>
+                <div class="col-lg-5 col-md-7 col-sm-8 transbox">
+                    <h2>I AM A Driver</h2>
+                    <p class="main-p">I want to connect with more transporters for regular business, more money and make use of the application for navigation to gain various benefits from the TruKKer Loyalty Program. 
+                    </p>
+                    <div class="text-left tab-nav">
+                        <!--<a href="#sign-up" data-target="#transporter" class="btn btn-lg btn-primary">Drive with Lite</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="grey" >
+        <div class="container-fluid">
+
+
+            <ul class="list-inline features"><li><div class="f-cont">
+                        <h4><i class="fa fa-internet-explorer"></i>Free Mobile internet</h4>
+                        <p>Register and get free internet on your phone when using the application for every transaction.  
+                        </p></div>
+                </li><li><div class="f-cont">  
+                        <h4><i class="fa fa-share-alt"></i>Connect with a transporter anywhere for more business</h4>
+                        <p>Tag a transporter in any state and work with them after tagging is accepted by the transporter. Now a transporter might have the next business ready for you even before you have completed the current delivery.
+                        </p></div>
+                </li><li><div class="f-cont">  
+                        <h4><i class="fa fa-money"></i>Collect TruKKer Coins for cash and gifts
+                        </h4>
+                        <p> Earn TruKKer Coins for every kilometer travelled on the TruKKer Lite App and redeem them for cash and gifts. 
+                        </p></div>
+                </li><li><div class="f-cont">  
+                        <h4><i class="fa fa-credit-card"></i>TruKKer Membership Card for discounts
+                        </h4>
+                        <p>Get a a FREE TruKKer Loyalty card upon joining and get to gold status for greater discounts & coins. 
+                        </p></div>
+                </li>
+            </ul>
+
+
+        </div>
+    </section>
+
+    <section id="sign-up">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="wow fadeInRight text-uppercase" data-wow-delay="0s">sign up
+
+                </h2>
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <ul class="nav nav-tabs">
+                            <!--						<li class="active"><a href="#shipper" data-toggle="tab">I'M Shipper</a></li>-->
+                            <li class="active"><a href="#transporter" data-toggle="tab">I'M Transporter</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="shipper" class="tab-pane ">
+
+                                <form action="" method="post" id="shipper_signup" autocomplete="off">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control input-lg"  placeholder="First Name" id="first_name" required="">
+                                            <span class="mandatory">*</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control input-lg"  placeholder="Last Name" id="last_name" required="">
+                                            <span class="mandatory">*</span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control input-lg"  placeholder="Username" id="username" autocomplete="off" required="">
+                                            <span class="mandatory">*</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="password" class="form-control input-lg"  placeholder="Password" id="sh_password" autocomplete="off" required="">
+                                            <span class="mandatory">*</span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control input-lg"  placeholder="Email" id="email" required="">
+                                            <span class="mandatory">*</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control input-lg"  placeholder="Mobile" id="mobile_no" required="">
+                                            <span class="mandatory">*</span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <textarea class="form-control input-lg" placeholder="Address" id="address"></textarea>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="text-center"><input type="submit" class="btn btn-primary btn-lg" value="CONTINUE"></div>
+
+                                </form>
+                            </div>
+
+
+                            <div class="tab-pane active" id="transporter">
+                                <form action="" method="post" autocomplete="off" id="transporter_signup" name="transporter_signup">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><b>SELECT USER TYPE </b></div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <select class="form-control input-lg" required="" id="TransUserType" onchange="transUserTypeDetail(this.value);">
+                                                        <option value="">Select User Type</option>
+                                                        <option value="Company">TRANSPORT COMPANY</option>
+                                                        <!--                                                            <option value="agent">TRANSPORT AGENT / BROKER</option>-->
+                                                        <option value="Individual">TRANSPORT INDIVIDUAL</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-sm-6" id="company_name_div" >
+                                                    <input type="text" class="form-control input-lg"  placeholder="Company" id="trans_company" >
+                                                    <span class="mandatory" id="trans_com_mad"></span>
+                                                </div>
+                                            </div>
+                                        </div></div>
+                                    <br>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><b>CONTACT PERSON INFORMATION</b></div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control input-lg"  placeholder="First Name" id="trans_firstname" required="" >
+                                                    <span class="mandatory">*</span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="email" class="form-control input-lg"  placeholder="Email" id="trans_email" required >
+                                                    <!--												<input type="text" class="form-control input-lg"  placeholder="Last Name" id="trans_lastname" >-->
+                                                    <span class="mandatory">*</span>    
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <!--												<input type="email" class="form-control input-lg"  placeholder="Email" id="trans_email" required >-->
+                                                    <input type="text" class="form-control input-lg"  placeholder="Mobile" required id="trans_mobile">
+                                                    <span class="mandatory">*</span>                                             
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control input-lg"  placeholder="City" required id="trans_city">
+                                                    <span class="mandatory">*</span>  
+                                                    
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control input-lg"  placeholder="Password" id="trans_password" required="" >
+                                                    <!--												<input type="text" class="form-control input-lg"  placeholder="Mobile" required id="trans_mobile">-->
+                                                    <span class="mandatory">*</span>
+                                                    <!--                                                               <input type="text" class="form-control input-lg" placeholder="Landline No." id="TransLandline"> -->
+                                                    
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="password" class="form-control input-lg"  placeholder="Confirm Password" id="trans_confirm_password" required="" >
+                                                    <!--												<input type="text" class="form-control input-lg"  placeholder="Mobile" required id="trans_mobile">-->
+                                                    <span class="mandatory">*</span>
+                                                    
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                <input type="text" class="form-control input-lg" placeholder="Enter Captcha Code" required id="captchaTextbox">  
+                                                    <span class="mandatory">*</span>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <p id="captcha"></p>
+                                                </div>
+                                            </div>
+                                                <!--                                                            <div class="col-sm-6">
+                                                                                                                <select class="form-control input-lg" required="" id="TransState"  onchange="get_city_data(this.value);">
+                                                                                                                    <option value="">Select State</option>
+                                                                                                                    
+                                                                                                        </select>
+                                                                                                                <span class="mandatory">*</span>
+                                                                                                            </div>-->
+                                            </div>
+                                            <!--                                                                                <br>
+                                                                                                                            <div class="row">
+                                                                                                        <div class="col-sm-12">
+                                                                                                            <textarea class="form-control input-lg" placeholder="Address" id="TransAddress" ></textarea>
+                                                                                                            <span class="mandatory_textarea">*</span>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <br>
+                                                                                                    
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <select class="form-control input-lg" required="" id="TransCity" onchange="get_city_other(this.value);" >
+                                                                                                                <option value="">Select City</option>
+                                                                                                    </select>
+                                                                                                            <span class="mandatory">*</span>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-6" id="other_TransCity_div" style="display:none;">
+                                                                                                            
+                                                                                                            <input type="text" class="form-control input-lg" placeholder="City" id="other_TransCity"  >  
+                                                                                                       
+                                                                                                        <span class="mandatory">*</span>
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                                    <br>
+                                                                                                    <div class="row">
+                                                                                                        <div class="col-sm-6">
+                                                                                                            <input type="text" class="form-control input-lg" placeholder="Pincode" id="TransPincode"  required="">   
+                                                                                                            <span class="mandatory">*</span>
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-4">
+                                                                                                            <input type="text" class="form-control input-lg" placeholder="Enter Captcha Code" required id="captchaTextbox">  
+                                                                                                        </div>
+                                                                                                        <div class="col-sm-2">
+                                                                                                            <p id="captcha"></p>
+                                                                                                        </div>
+                                                                                                    </div>-->
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="text-center"><input type="submit" id="btn_transpoter_register" class="btn btn-primary btn-lg" value="CONTINUE"></div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="wow fadeInRight text-uppercase" data-wow-delay="0s">Contact Us
+
+                </h2>
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <form action="" method="post" id="contact_us_form" autocomplete="off">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control input-lg"  placeholder="Email" required="" id="contact_email">
+                                    <span class="mandatory">*</span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control input-lg"  placeholder="Mobile" id="contact_mobile_no" required>
+                                    <span class="mandatory">*</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <textarea class="form-control input-lg" placeholder="Message" id="contact_message" required  ></textarea>
+                                    <span class="mandatory" style="margin-top:-54px;">*</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <input type="submit"  id="btn_contact_us" class="btn btn-primary btn-lg" value="CONTINUE"></div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="bottom-l-cont">
+                        <img src="img/logo-500.png" width="150" alt="" class="img-resonsive bottom-l">
+                    </div>
+                </div>	
+                <div class="col-sm-4">
+                    <h3>Newsletter</h3>
+                    <div class="foot-box">
+                        <form action="">
+                            <input type="text" class="form-control input-lg" placeholder="Email ID">
+                        </form>
+                    </div>
+                    <br>
+                    <div class="foot-box">
+                        <ul class="list-inline social">
+                            <li style="font-size:20px; vertical-align:top; font-weight:500;color:#aaa">Connect @</li>
+                            <li><a target="_blank" href="https://www.facebook.com/Trukker-Lite-791624410942737/?fref=ts"><img src="img/fb.png" alt="" class="img-responsive"></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/company/trukker.in"><img src="img/linked-in.png" alt="" class="img-responsive"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 wt">
+                    <h3>Contact Us</h3>
+                    <div class="foot-box">
+                        <ul class="list-unstyled contact">
+                            <li><i class="fa fa-map-marker"></i><p>319, Advait Complex, Vastrapur<br>Ahmedabad,Gujarat - 380015</p></li>
+                            <li><i class="fa fa-phone "></i><p>+91 79 48005315</p></li>
+                            <li><i class="fa fa-envelope"></i><p>contact@trukker.in</p></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <span class="copy">&copy; - 2016 TruKKer Techonologies Pvt Ltd</span>
+
+
+        </div>
+
+    </footer>
+    <input type="text" id="mobile_no_hidden" name="mobile_no_hidden">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.min.js"></script>
+    <script type="text/javascript" src="js/imagesLoaded.min.js"></script>
+    <script type="text/javascript" src="js/isotope.min.js"></script>
+    <script src="js/wow.min.js"></script> 
+
+    <script src="js/custom.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="dashboard/assets/js/jquery.maskedinput.min.js"></script>
+    <link href="dashboard/assets/bootstrap-dialog/bootstrap-dialog.css" rel="stylesheet" id="theme" />
+    <script src="dashboard/assets/bootstrap-dialog/bootstrap-dialog.js"></script>
+    <script src="dashboard/assets/js/custom.js"></script>
+    <script src="js/jquery.clientsidecaptcha.js"></script>
+
+    <script type="text/javascript">
+                                                                        $(document).ready(function () {
+                                                                            $("#mobile_no").mask("9999999999");
+                                                                            $("#trans_mobile").mask("9999999999");
+                                                                            $("#contact_mobile_no").mask("9999999999");
+                                                                            $("#TransLandline").mask("99999999999");
+                                                                            $("#TransPincode").mask("999999");
+                                                                            $("#verify_mobile_no").mask("9999999999");
+                                                                            $("#transporter_signup").clientSideCaptcha({
+                                                                                input: "#captchaTextbox",
+                                                                                display: "#captcha",
+                                                                                pass: function () {
+                                                                                    CaptchaValidate('1');
+                                                                                },
+                                                                                fail: function () {
+                                                                                    alert_message_popup('', 'Please enter captcha same as given on right side', 'danger', 'Captcha Error');
+                                                                                    //alert("Please enter captcha same as given on right side");
+                                                                                    $("#captchaTextbox").focus();
+                                                                                    CaptchaValidate('0');
+                                                                                }
+                                                                            });
+                                                                            function CaptchaValidate(param)
+                                                                            {
+                                                                                sessionStorage.setItem("Captcha_status", param);
+                                                                            }
+                                                                            debugger;
+                                                                            $.ajax({
+                                                                                url: api_path + "truck/GetstateDetails",
+                                                                                contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+                                                                                    debugger;
+                                                                                    var state_options = "<option value>Select State</option>";
+                                                                                    //var dropdownstate_json = JSON.stringify(data);
+                                                                                    var dropdownstate_json_parse = JSON.parse(data);
+                                                                                    var state_size = dropdownstate_json_parse.length;
+
+                                                                                    for (var j = 0; j < state_size; j++)
+                                                                                    {
+                                                                                        var state_code = dropdownstate_json_parse[j].state_code;
+                                                                                        var state_name = dropdownstate_json_parse[j].state_name;
+                                                                                        state_options += "<option value=" + state_code + ">" + state_name + "</option>";
+                                                                                    }
+
+                                                                                    $("#TransState").html(state_options);
+                                                                                }
+                                                                            });
+
+
+                                                                            var check_login = sessionStorage.getItem('is_login');
+                                                                            if (check_login === 'yes') {
+                                                                                window.location.href = "dashboard/dashboard.html";
+                                                                                return false;
+                                                                            } else {
+                                                                                return false;
+                                                                            }
+                                                                        });
+                                                                        $('#trans_username').keypress(function (e) {
+                                                                            var tval = $('#trans_username').val(),
+                                                                                    tlength = tval.length,
+                                                                                    set = 20,
+                                                                                    remain = parseInt(set - tlength);
+                                                                            if (remain == '0') {
+                                                                                alert_message_popup('', 'Username should not more than 20 character', 'danger', 'Username Error');
+                                                                                //alert("Username should not more than 20 character");
+                                                                                return false;
+                                                                            }
+                                                                            if (remain <= 0 && e.which !== 0 && e.charCode !== 0) {
+                                                                                $('#trans_username').val((tval).substring(0, tlength - 1));
+                                                                            }
+                                                                        });
+                                                                        $('#username').keypress(function (e) {
+                                                                            var tval = $('#username').val(),
+                                                                                    tlength = tval.length,
+                                                                                    set = 20,
+                                                                                    remain = parseInt(set - tlength);
+                                                                            if (remain == '0') {
+                                                                                alert_message_popup('', 'Username should not more than 20 character', 'danger', 'Username Error');
+                                                                                //alert("Username should not more than 20 character");
+                                                                                return false;
+                                                                            }
+                                                                            if (remain <= 0 && e.which !== 0 && e.charCode !== 0) {
+                                                                                $('#username').val((tval).substring(0, tlength - 1));
+                                                                            }
+                                                                        });
+
+
+                                                                        $("#shipper_signup").on("submit", function (e) {
+                                                                            var tval = $('#username').val(),
+                                                                                    tlength = tval.length,
+                                                                                    set = 20,
+                                                                                    remain = parseInt(set - tlength);
+                                                                            if (remain == '0') {
+                                                                                alert_message_popup('', 'Username should not more than 20 character', 'danger', 'Username Error');
+                                                                                //alert("Username should not more than 20 character");
+                                                                                return false;
+                                                                            }
+                                                                            if (remain <= 0 && e.which !== 0 && e.charCode !== 0) {
+                                                                                $('#username').val((tval).substring(0, tlength - 1));
+                                                                            }
+                                                                            var created_host = sessionStorage.getItem('created_host');
+                                                                            var json_to_save = JSON.stringify({
+                                                                                "Shipper_master": [{
+                                                                                        "reg_type": "SH",
+                                                                                        "first_name": $("#first_name").val(),
+                                                                                        "last_name": $("#last_name").val(),
+                                                                                        "address": $("#address").val(),
+                                                                                        "email": $("#email").val(),
+                                                                                        "company_name": '',
+                                                                                        "mobile_no": $("#mobile_no").val(),
+                                                                                        "UserID": $("#username").val(),
+                                                                                        "password": $("#sh_password").val(),
+                                                                                        "created_by": created_host,
+                                                                                        "created_host": created_host,
+                                                                                        "device_id": created_host,
+                                                                                        "device_type": "Browser"
+                                                                                    }]
+                                                                            });
+                                                                            debugger;
+                                                                            $.ajax({
+                                                                                url: api_path + "Shipper/registrationshipper",
+                                                                                type: "POST",
+                                                                                data: json_to_save,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+                                                                                    var jsn_parse = JSON.parse(data);
+                                                                                    if (jsn_parse.status == '1') {
+                                                                                        alert_message_popup('', 'Registration completed successfully', 'primary', 'Success');
+                                                                                        //alert("Registration completed successfully");
+                                                                                        window.location.reload();
+                                                                                    } else if (jsn_parse.status == '0') {
+                                                                                        // alert(jsn_parse.message);
+                                                                                        alert_message_popup('', jsn_parse.message, 'danger', 'Error');
+                                                                                        return false;
+                                                                                    }
+                                                                                }
+                                                                            });
+                                                                            e.preventDefault();
+                                                                            return false;
+                                                                        });
+                                                                        $.getJSON("http://jsonip.com/?callback=?", function (data) {
+                                                                            sessionStorage.setItem('created_host', data.ip);
+                                                                        });
+                                                                       
+                                                                        $("#transporter_signup").on("submit", function (e) {
+                                                                            debugger;
+                                                                       
+                                                                        
+                                                                            var trans_pwd = $("#trans_password").val();
+                                                                           
+                                                                            var confirm_trans_pwd = $("#trans_confirm_password").val();
+                                                                            if (trans_pwd != confirm_trans_pwd)
+                                                                            {
+                                                                                alert_message_popup('', 'New Password & Confirm Password are not same.', 'danger', 'Error');
+                                                                                return false;
+                                                                            }
+                                                                            $("#btn_transpoter_register").val("Please Wait..");
+                                                                            $("#btn_transpoter_register").attr("disabled", true);
+                                                                            
+                                                                            var domain_name = window.location.href;
+                                                                            setTimeout(function () {
+                                                                                var captcha_status = sessionStorage.getItem("Captcha_status");
+
+                                                                                if (captcha_status == '0')
+                                                                                {
+                                                                                    $("#btn_transpoter_register").val("CONTINUE");
+                                                                                    $("#btn_transpoter_register").attr("disabled", false);
+                                                                                    return false;
+                                                                                }
+                                                                                debugger;
+                                                                                var created_host = sessionStorage.getItem('created_host');
+                                                                                var TransUserType = $("#TransUserType").val();
+                                                                                var TransFirstName = $("#trans_firstname").val().trim();
+                                                                                // var TransLastName = $("#trans_lastname").val().trim();
+                                                                                var TransMobileNo = $("#trans_mobile").val();
+                                                                                var TransEmailID = $("#trans_email").val();
+                                                                                // var TransporterPassword = "";
+                                                                                // var TransAddress = $("#TransAddress").val().trim();
+                                                                                //var TransCity = $("#TransCity").val();
+                                                                                //var TransOtherCity = $("#other_TransCity").val().trim();
+                                                                                // var TransPincode = $("#TransPincode").val();
+                                                                                // var TransAlterContPers = "";
+                                                                                //var TransAlterMobileNo = "";
+                                                                                // var TransStdCode = "";
+                                                                                // var TransLandline = $("#TransLandline").val();
+                                                                                // var TransPanNo = "";
+                                                                                var TransCompanyName = $("#trans_company").val().trim();
+                                                                                //var TransCompanyType = "";
+                                                                                //var TransTruckType = "";
+                                                                                //var TransFranchise = "";
+                                                                                // var TransServiceFor = "";
+                                                                                //var TransServiceTaxNo = "";
+                                                                                //var TransCompanyPanNo = "";
+                                                                                //var TransCompanyWebsite = "";
+                                                                                //var TransProfilePic = "";
+                                                                                var TransPassword = $("#trans_password").val().trim();
+                                                                                var TransCity = $("#trans_city").val().trim();
+                                                                                var created_host = sessionStorage.getItem('created_host');
+                                                                                //var profile_pic = "";
+
+                                                                                var json_to_save = JSON.stringify({
+                                                                                    "User": [{
+                                                                                            "created_host": created_host,
+                                                                                            "created_by": "WEB",
+                                                                                            "owner_type": TransUserType,
+                                                                                            "first_name": TransFirstName,
+                                                                                            "role_id": "TR",
+                                                                                            "company_name": TransCompanyName,
+                                                                                            "client_type": "B",
+                                                                                            "device_type": "Browser",
+                                                                                            "device_id": created_host,
+                                                                                            "user_id": TransMobileNo,
+                                                                                            "password": TransPassword,
+                                                                                            "email_id": TransEmailID,
+                                                                                            "mobile_no": TransMobileNo,
+                                                                                            "city":TransCity
+                                                                                        }],
+                                                                                    "Transporter": [{
+                                                                                            "created_host": created_host,
+                                                                                            "created_by": "WEB",
+                                                                                            "device_id": created_host,
+                                                                                            "owner_name": TransFirstName,
+                                                                                            "device_type": "Browser",
+                                                                                            "mobile_no": TransMobileNo
+                                                                                        }]
+                                                                                });
+
+                                                                                debugger;
+                                                                                $.ajax({
+                                                                                    url: api_path + "login/saveuser",
+                                                                                    type: "POST",
+                                                                                    data: json_to_save,
+                                                                                    contentType: "application/json; charset=utf-8",
+                                                                                    dataType: "json",
+                                                                                    async: false,
+                                                                                    success: function (data)
+                                                                                    {
+                                                                                        var jsn_parse = JSON.parse(data);
+                                                                                        console.log(jsn_parse);
+                                                                                        if (jsn_parse.status == '1') {
+                                                                                            // alert("Registration completed successfully");
+
+                                                                                            alert_message_popup('index.html', 'Registration completed successfully', 'primary', 'Success');
+                                                                                            $("#btn_transpoter_register").val("CONTINUE");
+                                                                                            $("#btn_transpoter_register").attr("disabled", false);
+                                                                                            //  window.location.reload();
+                                                                                        } else if (jsn_parse.status == '0') {
+                                                                                            alert_message_popup('', jsn_parse.message, 'danger', 'Error');
+                                                                                            //alert(jsn_parse.message);
+                                                                                            $("#btn_transpoter_register").val("CONTINUE");
+                                                                                            $("#btn_transpoter_register").attr("disabled", false);
+                                                                                            return false;
+                                                                                        }
+                                                                                    },
+                                                                                    error: function (data)
+                                                                                    {
+                                                                                        $("#btn_transpoter_register").val("CONTINUE");
+                                                                                        $("#btn_transpoter_register").attr("disabled", false);
+                                                                                    }
+                                                                                });
+                                                                            }, 2000);
+                                                                            e.preventDefault();
+                                                                            return false;
+                                                                        });
+    //    $("#transporter_signup").on("submit", function (e) {
+    //        
+    //           $("#btn_transpoter_register").val("Please Wait..");
+    //           $("#btn_transpoter_register").attr("disabled",true);
+    //     var domain_name = window.location.href;
+    //     setTimeout(function(){
+    //         var captcha_status = sessionStorage.getItem("Captcha_status");
+    //     
+    //                               if(captcha_status == '0')
+    //                               {
+    //                                    $("#btn_transpoter_register").val("CONTINUE");
+    //           $("#btn_transpoter_register").attr("disabled",false);
+    //                                   return false;
+    //                               }
+    //                               debugger;
+    //                               var created_host = sessionStorage.getItem('created_host');
+    //                                         var TransUserType = $("#TransUserType").val();
+    //                                         var TransFirstName = $("#trans_firstname").val().trim();
+    //                                         var TransLastName = $("#trans_lastname").val().trim();
+    //                                         var TransMobileNo = $("#trans_mobile").val();
+    //                                         var TransEmailID = $("#trans_email").val();
+    //                                         var TransporterPassword = "";
+    //                                         var TransAddress = $("#TransAddress").val().trim();
+    //                                         var TransCity = $("#TransCity").val();
+    //                                         var TransOtherCity = $("#other_TransCity").val().trim();
+    //                                         var TransPincode = $("#TransPincode").val();
+    //                                         var TransAlterContPers = "";
+    //                                         var TransAlterMobileNo = "";
+    //                                         var TransStdCode = "";
+    //                                         var TransLandline = $("#TransLandline").val();
+    //                                         var TransPanNo = "";
+    //                                         var TransCompanyName = $("#trans_company").val().trim();
+    //                                         var TransCompanyType = "";
+    //                                         var TransTruckType = "";
+    //                                         var TransFranchise = "";
+    //                                         var TransServiceFor = "";
+    //                                         var TransServiceTaxNo = "";
+    //                                         var TransCompanyPanNo = "";
+    //                                         var TransCompanyWebsite = "";
+    //                                         var TransProfilePic = "";
+    //                                         var created_host = sessionStorage.getItem('created_host');
+    //                                        var profile_pic = "";
+    //                                         
+    //                                         var json_to_save = JSON.stringify({
+    //                                         "Transporter": [{
+    //                                            "reg_type": TransUserType,
+    //                                            "first_name": TransFirstName,
+    //                                            "last_name": TransLastName,
+    //                                            "address": TransAddress,
+    //                                            "email": TransEmailID,
+    //                                            "company_name": TransCompanyName,
+    //                                            "website": TransCompanyWebsite,
+    //                                            "pan_no": TransPanNo,
+    //                                            "tin_no": "",
+    //                                            "profile_pic": profile_pic,
+    //                                            "alt_contact_name": TransAlterContPers,
+    //                                            "alt_mobile": TransAlterMobileNo,
+    //                                            "mobile_no": TransMobileNo,
+    //                                            "city": TransCity,
+    //                                            "city_other": TransOtherCity,
+    //                                            "landline_no": TransLandline,
+    //                                            "created_by": "WEB",
+    //                                            "created_host": created_host,
+    //                                            "device_id": created_host,
+    //                                            "device_type": "Browser",
+    //                                            "requesttype": "profile",
+    //                                            "domainname": domain_name
+    //                                        }]
+    //                                        });
+    //       
+    //        debugger;
+    //        $.ajax({
+    //            url: api_path + "Shipper/RegisterTransporter",
+    //            type: "POST",
+    //            data: json_to_save,
+    //            contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+    //            async: false,
+    //            success: function (data)
+    //            {
+    //                var jsn_parse = JSON.parse(data);
+    //                if (jsn_parse.status == '1') {
+    //                   // alert("Registration completed successfully");
+    //                  
+    //                   alert_message_popup('index.html','Registration completed successfully','primary','Success');
+    //                    $("#btn_transpoter_register").val("CONTINUE");
+    //           $("#btn_transpoter_register").attr("disabled",false);
+    //                  //  window.location.reload();
+    //                } else if (jsn_parse.status == '0') {
+    //                     alert_message_popup('',jsn_parse.message,'danger','Error');
+    //                    //alert(jsn_parse.message);
+    //                      $("#btn_transpoter_register").val("CONTINUE");
+    //           $("#btn_transpoter_register").attr("disabled",false);
+    //                    return false;
+    //                }
+    //            },
+    //            error:function (data)
+    //            {
+    //                $("#btn_transpoter_register").val("CONTINUE");
+    //           $("#btn_transpoter_register").attr("disabled",false); 
+    //            }
+    //        });
+    //        },2000);
+    //        e.preventDefault();
+    //        return false;
+    //    });
+                                                                        $("#otp_checking").on("submit", function (e) {
+                                                                            debugger;
+                                                                            var username = $("#user_id").val();
+                                                                            var pwd = $("#password").val();
+
+                                                                            var otp_val = $("#otp_text").val();
+                                                                            var json_otp = '{"Login":{"user_id":"' + username + '","password":"' + pwd + '","otp":"' + otp_val + '"}}';
+
+                                                                            $.ajax({
+                                                                                url: api_path + "Login/Checkotp",
+                                                                                type: "POST",
+                                                                                data: json_otp,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+                                                                                    debugger;
+
+                                                                                    var parse_json = JSON.parse(data);
+
+                                                                                    if (parse_json.status === '1') {
+                                                                                        var rl_id = parse_json.message[0]['role_id'];
+                                                                                        sessionStorage.setItem('email_id', parse_json.message[0]['email_id']);
+                                                                                        sessionStorage.setItem('role_id', rl_id);
+                                                                                        sessionStorage.setItem('is_login', "yes");
+                                                                                        sessionStorage.setItem('username', username);
+                                                                                        sessionStorage.setItem('UserName', parse_json.message[0]['first_name']);
+                                                                                        sessionStorage.setItem('pwd', pwd);
+                                                                                        sessionStorage.setItem('unique_id', parse_json.message[0]['unique_id']);
+                                                                                        sessionStorage.setItem('driver_photo', parse_json.message[0]['driver_photo']);
+
+                                                                                        window.location.href = "dashboard/dashboard.html";
+                                                                                    }
+                                                                                    else {
+                                                                                        alert_message_popup('', parse_json.message, 'danger', 'OTP Error');
+                                                                                    }
+                                                                                },
+                                                                                error: function (jqXHR, textStatus, errorThrown, config)
+                                                                                {
+
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+
+                                                                        });
+
+                                                                        $("#verify_mobile_forgot").on("submit", function (e) {
+                                                                            debugger;
+                                                                            var mob_no = $("#verify_mobile_no").val();
+
+                                                                            //  var json_otp = '{"Login":{"user_id":"' + username + '","password":"' + pwd + '","otp":"'+otp_val+'"}}';
+                                                                            var json_otp = '{"User": [{ "user_id": "' + mob_no + '" }]}';
+
+                                                                            $.ajax({
+                                                                                url: api_path + "Login/validateusersendOTP?moblno="+mob_no,
+                                                                               // url: api_path + "Login/validateusersendOTP",
+                                                                                type: "GET",
+                                                                                //data: json_otp,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+                                                                                    debugger;
+                                                                                    console.log(data);
+                                                                                    var parse_json = JSON.parse(data);
+
+                                                                                    if (parse_json.status === '1') {
+                                                                                        $("#mobile_no_hidden").val(mob_no);
+                                                                                        alert_message_popup('', parse_json.message, 'primary', 'OTP Send');
+                                                                                        $("#forgot_mobile_no").modal("hide");
+                                                                                        $("#otpmodal_forgot").modal("show");
+                                                                                    }
+                                                                                    else {
+                                                                                        alert_message_popup('', parse_json.message, 'danger', 'Mobile Verification Error');
+                                                                                    }
+                                                                                },
+                                                                                error: function (jqXHR, textStatus, errorThrown, config)
+                                                                                {
+
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+
+                                                                        });
+                                                                        $("#otp_checking_for_pwd").on("submit", function (e) {
+                                                                            debugger;
+                                                                            var otp_no = $("#otp_text_forgot").val();
+                                                                            var username = $("#mobile_no_hidden").val();
+                                                                            var json_otp = '{"Login":{"user_id":"' + username + '","otp":"' + otp_no + '"}}';
+
+                                                                            $.ajax({
+                                                                                url: api_path + "Login/ValidateUserOTP",
+                                                                                type: "POST",
+                                                                                data: json_otp,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+
+                                                                                    debugger;
+                                                                                    var parse_json = JSON.parse(data);
+                                                                                    // parse_json.status = 1;
+                                                                                    if (parse_json.status === '1') {
+                                                                                        alert_message_popup('', parse_json.message, 'primary', 'OTP Verified');
+                                                                                        $("#otpmodal_forgot").modal("hide");
+                                                                                        $("#forgot_pwd").modal("show");
+                                                                                    }
+                                                                                    else {
+                                                                                        alert_message_popup('', parse_json.message, 'danger', 'OTP Verification Error');
+                                                                                    }
+                                                                                },
+                                                                                error: function (jqXHR, textStatus, errorThrown, config)
+                                                                                {
+
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+
+                                                                        });
+
+                                                                        $("#forgot_pwd_form").on("submit", function (e) {
+                                                                            debugger;
+                                                                            var otp_no = $("#otp_text_forgot").val();
+                                                                            var username = $("#mobile_no_hidden").val();
+                                                                            //   var json_otp = '{"Login":{"user_id":"' + username + '","otp":"'+otp_no+'"}}';
+                                                                            var for_pwd = $("#new_pwd_forgot").val();
+                                                                            var confirm_pwd = $("#confirm_pwd_forgot").val();
+                                                                            if (for_pwd != confirm_pwd)
+                                                                            {
+                                                                                alert_message_popup('', 'New Password & Confirm Password are not same.', 'danger', 'Error');
+                                                                                return false;
+                                                                            }
+                                                                            var json_otp = '{"User":{"mobile_no":"' + username + '","password":"' + for_pwd + '"}}';
+                                                                            $.ajax({
+                                                                                //url: api_path + "Login/UpdateForgotpwd?moblno="+username+"&pwd="+for_pwd,
+                                                                                url: api_path + "Login/UpdateForgotpwd",
+                                                                                type: "POST",
+                                                                                data: json_otp,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+
+                                                                                    debugger;
+                                                                                    var parse_json = JSON.parse(data);
+                                                                                    // parse_json.status = 1;
+                                                                                    if (parse_json.status === '1') {
+                                                                                        alert_message_popup('', parse_json.message, 'primary', 'Password Change');
+
+                                                                                        $("#forgot_pwd").modal("hide");
+                                                                                    }
+                                                                                    else {
+                                                                                        alert_message_popup('', parse_json.message, 'danger', 'Password Change Error');
+                                                                                    }
+                                                                                },
+                                                                                error: function (jqXHR, textStatus, errorThrown, config)
+                                                                                {
+
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+
+                                                                        });
+
+                                                                        function resend_OTP() {
+
+                                                                            debugger;
+                                                                            var mob_no = $("#mobile_no_hidden").val();
+
+                                                                            //var json_otp = '{"Login":{"user_id":"' + username + '","password":"' + pwd + '","otp":"'+otp_val+'"}}';
+
+                                                                            $.ajax({
+                                                                                url: api_path + "Login/validateusersendOTP?moblno=" + mob_no,
+                                                                                type: "GET",
+                                                                                // data: json_otp,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+                                                                                    debugger;
+
+                                                                                    var parse_json = JSON.parse(data);
+
+                                                                                    if (parse_json.status === '1') {
+
+                                                                                        alert_message_popup('', parse_json.message, 'primary', 'Resend OTP');
+
+                                                                                    }
+                                                                                    else {
+                                                                                        alert_message_popup('', parse_json.message, 'danger', 'Resend OTP Error');
+                                                                                    }
+                                                                                },
+                                                                                error: function (jqXHR, textStatus, errorThrown, config)
+                                                                                {
+
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+                                                                        }
+                                                                        $("#login_btn").click(function (e) {
+                                                                            debugger;
+                                                                            //$('#otpmodal').modal('show');
+                                                                            var username = $("#user_id").val();
+                                                                            var pwd = $("#password").val();
+                                                                            var json_login = '{"Login":{"user_id":"' + username + '","password":"' + pwd + '"}}';
+
+                                                                            $.ajax({
+                                                                                url: api_path + "Login/checkin",
+                                                                                type: "POST",
+                                                                                data: json_login,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+
+                                                                                    $("#mobile_no_hidden").val(username);
+                                                                                    var parse_json = JSON.parse(data);
+
+                                                                                    if (parse_json.status === '1') {
+                                                                                        var rl_id = parse_json.message[0]['role_id'];
+                                                                                        if (rl_id != 'OD') {
+
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            $("#error_login").html("<div class='alert alert-danger'><strong>Error!</strong> Owner Driver can not Login.</div>");
+                                                                                            return false;
+                                                                                        }
+    //                    if (rl_id) {
+    //                    } else {
+    //                        //alert("Unable to login,Problem to getting Role Id.");
+    //						alert("Error! Please try again");
+    //                        return false;
+    //                    }
+
+                                                                                        sessionStorage.setItem('email_id', parse_json.message[0]['email_id']);
+                                                                                        sessionStorage.setItem('role_id', rl_id);
+                                                                                        sessionStorage.setItem('is_login', "yes");
+                                                                                        sessionStorage.setItem('username', username);
+                                                                                        sessionStorage.setItem('UserName', parse_json.message[0]['first_name']);
+                                                                                        sessionStorage.setItem('pwd', pwd);
+                                                                                        sessionStorage.setItem('unique_id', parse_json.message[0]['unique_id']);
+                                                                                        sessionStorage.setItem('driver_photo', parse_json.message[0]['driver_photo']);
+
+                                                                                        window.location.href = "dashboard/dashboard.html";
+                                                                                    }
+                                                                                    else if (parse_json.status === '2')
+                                                                                    {
+                                                                                        if (parse_json.roleid != 'OD') {
+                                                                                            $('#otpmodal').modal('show');
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            $("#error_login").html("<div class='alert alert-danger'><strong>Error!</strong> Owner Driver can not Login.</div>");
+                                                                                        }
+                                                                                        // $("#error_login").html("<div class='alert alert-danger'><strong>Error!</strong> Invalid Username OR Password.</div>");
+                                                                                    } else {
+                                                                                        $("#error_login").html("<div class='alert alert-danger'><strong>Error!</strong> Invalid Username OR Password.</div>");
+                                                                                    }
+                                                                                },
+                                                                                error: function (jqXHR, textStatus, errorThrown, config)
+                                                                                {
+
+                                                                                    //console.log(config);
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+                                                                        });
+                                                                        function transUserTypeDetail(val)
+                                                                        {
+                                                                            debugger;
+                                                                           
+                                                                            if (val == 'Company')
+                                                                            {
+                                                                                $("#trans_com_mad").text('*');
+                                                                                $("#trans_company").attr("required", true);
+                                                                               
+                                                                            }
+                                                                            else {
+                                                                                $("#trans_com_mad").text('');
+                                                                                $("#trans_company").attr("required", false);
+                                                                            }
+                                                                            debugger;
+                                                                        }
+                                                                        function get_city_data(state_id)
+                                                                        {
+                                                                            debugger;
+                                                                            $.ajax({
+                                                                                url: api_path + "truck/GetCityDetailsFromState?state_code=" + state_id,
+                                                                                contentType: "application/json; charset=utf-8",
+    //            dataType: "json",
+                                                                                async: false,
+                                                                                success: function (data)
+                                                                                {
+                                                                                    debugger;
+                                                                                    var city_options = "<option value>Select City</option>";
+                                                                                    //var dropdownstate_json = JSON.stringify(data);
+                                                                                    var dropdowncity_json_parse = JSON.parse(data);
+                                                                                    var city_size = dropdowncity_json_parse.length;
+
+                                                                                    for (var j = 0; j < city_size; j++)
+                                                                                    {
+                                                                                        var city_code = dropdowncity_json_parse[j].city_code;
+                                                                                        var city_name = dropdowncity_json_parse[j].city_name;
+                                                                                        city_options += "<option value=" + city_code + ">" + city_name + "</option>";
+                                                                                    }
+                                                                                    city_options += "<option value='other_city'>Other City</option>";
+                                                                                    $("#TransCity").html(city_options);
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                        function get_city_other(city_checker)
+                                                                        {
+                                                                            if (city_checker == 'other_city')
+                                                                            {
+                                                                                $("#other_TransCity_div").show();
+                                                                                $("#other_TransCity").attr("required", true);
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                $("#other_TransCity_div").hide();
+                                                                                $("#other_TransCity").attr("required", false);
+                                                                            }
+                                                                        }
+                                                                        $("#contact_us_form").on("submit", function (e) {
+                                                                            $("#btn_contact_us").val("Please Wait.. Email is Sending...");
+                                                                            $("#btn_contact_us").attr("disabled", true);
+
+                                                                            var json_to_save = JSON.stringify({
+                                                                                "Email": [{
+                                                                                        "EmailID": $("#contact_email").val(),
+                                                                                        "Message": $("#contact_message").val(),
+                                                                                        "Source": 'Contact',
+                                                                                        "mobile_no": $("#contact_mobile_no").val(),
+                                                                                    }]
+                                                                            });
+                                                                            debugger;
+                                                                            $.ajax({
+                                                                                url: api_path + "mailer/SendEMail",
+                                                                                type: "POST",
+                                                                                data: json_to_save,
+                                                                                contentType: "application/json; charset=utf-8",
+                                                                                dataType: "json",
+                                                                                success: function (data)
+                                                                                {
+
+                                                                                    var jsn_parse = JSON.parse(data);
+                                                                                    if (jsn_parse.status == '1') {
+                                                                                        alert_message_popup('index.html', jsn_parse.message, 'primary', 'Success');
+                                                                                        $("#btn_contact_us").val("CONTINUE");
+                                                                                        $("#btn_contact_us").attr("disabled", false);
+                                                                                        //alert("Registration completed successfully");
+                                                                                        //  window.location.reload();
+                                                                                    } else if (jsn_parse.status == '0') {
+                                                                                        alert_message_popup('', jsn_parse.message, 'danger', 'Mail Error');
+                                                                                        $("#btn_contact_us").val("CONTINUE");
+                                                                                        $("#btn_contact_us").attr("disabled", false);
+                                                                                        return false;
+                                                                                    }
+                                                                                },
+                                                                                error: function (data)
+                                                                                {
+                                                                                    $("#btn_contact_us").val("CONTINUE");
+                                                                                    $("#btn_contact_us").attr("disabled", false);
+                                                                                }
+                                                                            });
+
+                                                                            e.preventDefault();
+                                                                            return false;
+                                                                        });
+                                                                        //$('#TransAddress').keyup(validateTextarea);
+                                                                        //$('#contact_message').keyup(validateTextarea);
+
+                                                                        function validateTextarea() {
+                                                                            var errorMsg = "Please match the format requested.";
+                                                                            var textarea = this;
+                                                                            var pattern = new RegExp('^' + $(textarea).attr('pattern') + '$');
+                                                                            // check each line of text
+                                                                            $.each($(this).val().split("\n"), function () {
+                                                                                // check if the line matches the pattern
+                                                                                var hasError = !this.match(pattern);
+                                                                                if (typeof textarea.setCustomValidity === 'function') {
+                                                                                    textarea.setCustomValidity(hasError ? errorMsg : '');
+                                                                                } else {
+                                                                                    // Not supported by the browser, fallback to manual error display...
+                                                                                    $(textarea).toggleClass('error', !!hasError);
+                                                                                    $(textarea).toggleClass('ok', !hasError);
+                                                                                    if (hasError) {
+                                                                                        $(textarea).attr('title', errorMsg);
+                                                                                    } else {
+                                                                                        $(textarea).removeAttr('title');
+                                                                                    }
+                                                                                }
+                                                                                return !hasError;
+                                                                            });
+                                                                        }
+    </script>
+    <style type="text/css">
+        .modal-primary {
+            background: #007aa8;
+            color: white;
+        }
+    </style>
+</body>
+</html>
+<script>
+    $('#team-popup').on('show.bs.modal', function (e) {
+        $(this).find('.modal-body').html($(e.relatedTarget).html());
+    });
+    $('#otpmodal').on('hidden.bs.modal', function () {
+        $('#otp_checking')[0].reset();
+    });
+    $('#forgot_mobile_no').on('hidden.bs.modal', function () {
+        $('#verify_mobile_forgot')[0].reset();
+    });
+    $('#otpmodal_forgot').on('hidden.bs.modal', function () {
+        $('#otp_checking_for_pwd')[0].reset();
+    });
+    $('#forgot_pwd').on('hidden.bs.modal', function () {
+        $('#forgot_pwd_form')[0].reset();
+    });
+    $(window).load(function () {
+        $('#myModal').modal('show');
+    });
+   
+</script>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <a href="https://play.google.com/store/apps/details?id=trukkerlite.trukker.com.trukkerlite" target="_blank"><img src="img/trukkerlite_banner_playstore.jpg"  style="width:100%"></a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<style type="text/css">
+ 
+    
+    .navbar-inverse .navbar-nav>li>span>a.opa
+    {
+           color: white;
+    text-decoration: none;
+    }
+    </style>
